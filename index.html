@@ -1,0 +1,171 @@
+forms:
+
+Forms are basically used for taking input from the user in some manner and using that information for logical operations on databases.
+
+
+Forms[Inserting and Fetching Data in sqlite database]
+
+1. Create a django project 
+    django-admin startproject forms
+2. cd forms
+3. Create an application folder
+   python manage.py startapp testapp
+4. code .
+5. Templates folder creation inside project folder
+   md templates
+6. Register both application folder path and templates folder path
+
+Application folder path:
+
+settings.py
+Installed_Apps[
+  'testapp'
+]
+
+import os
+BASE_DIR=BASE_DIR = Path(__file__).resolve().parent.parent
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
+6.Create Model Class in models.py
+models.py
+
+from django.db import models
+class product1(models.Model):
+    pname=models.CharField(max_length=50)
+    qty=models.IntegerField()
+    price=models.IntegerField()
+
+7.python manage.py makemigrations
+  python manage.py migrate
+Note: Table will be created [testapp_product1]
+8.We have to create forms.py file manually inside testapp folder
+forms.py
+from django import forms
+from testapp.models import product1
+class productForm(forms.ModelForm):
+    class Meta:
+        model=product1
+        fields='__all__'
+
+Testing:
+from django import forms
+from .models import product1
+class MyForm(forms.ModelForm):
+  class Meta:
+    model = product1
+    fields = ["pname", "qty"]
+    labels = {'pname': "Product name", "qty": "Quantity"}
+
+views.py
+from django.shortcuts import render
+from testapp.models import product1
+from testapp.forms import productForm
+def add_product(request):
+    form = productForm
+    pform = {'form': form}
+    if request.method == "POST":
+        form = productForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request,'success.html')
+    return render(request, 'index.html',pform)
+
+def productReport(request):
+    result = product1.objects.all()
+    products = {'allproducts':result}
+    return render(request,'product-report.html',products)
+
+index.html   should be created inside templates folder
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>Title</title>
+</head>
+<body>
+<h3> Please fill bellow application form</h3>
+<form method="post">
+ <table>
+ {{form.as_table}}
+ </table>
+button>SAVE</button>
+ {% csrf_token %}
+</form>
+<br>
+<br>
+<a href="product_report"><button type="button" name="button">Product  report</button></a></br><br/>
+</body>
+</html>
+
+success.html
+<html>
+<body>
+  <h2 style="color:red">Record is inserted successfully</h2>
+   <a href="">Back</a><br/><br/>
+</body>
+</html>
+
+urls.py
+urlpatterns = [
+fr<html>
+<body>
+  <h2 style="color:red">Record is inserted successfully</h2>
+   <a href="">Back</a><br/><br/>
+</body>
+</html>
+
+
+    path('admin/', admin.site.urls),
+    path('first/',views.add_product),
+    path('first/product_report/',views.productReport)
+]
+
+product-report.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Product Report </h1>
+<br/>
+<table border="1">
+    <tr>
+        <th>Product id</th>
+        <th>Product name</th>
+         <th>Quantity</th>
+         <th>Price</th>
+         
+    </tr>
+{% for s in allproducts %}
+    <tr>
+        <td>{{s.id}}</td>
+        <td>{{s.pname}}</td>
+         <td>{{s.qty}}</td>
+         <td>{{s.price}}</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
+
+python manage.py runserver
+
+
+  
