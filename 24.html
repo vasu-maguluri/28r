@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BUS PASS</title>
+</head>
+
+<center>
+    <h1>TELANAGANA STATE ROAD TRANSPORT CORPORATION</h1>
+</center>
+<center>
+    <h2>GENERAL BUS PASS APPLICATION</h2>
+</center>
+
+    <fieldset>
+        <legend>
+            <h2>Applicant Details</h2>
+        </legend>
+        <table cellspacing="10" cellpadding="5">
+            <tr>
+                <td>
+                    Name<strong>*</strong>
+                </td>
+                <td>
+                    <input type="text" maxlength="20" required="required"><br>
+                    (max characters :20)
+                </td>
+                <td>
+                    Fathers/Guardians Name<strong>*</strong>
+                </td>
+                <td>
+                    <input type="text" required="required">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Date of birth <strong>*</strong>
+                </td>
+                <td>
+                    <input type="text" required="required">
+                </td>
+                <td>
+                    Gender<strong>*</strong>
+                </td>
+                <td>
+                    <input type="radio" value="Female" name="gender" required="required">Female
+                    <input type="radio" value="Male" name="gender">Male
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Age as on :
+                </td>
+                <td>
+                    <input type="checkbox">Years()
+                    <input type="checkbox">Months()
+                    <input type="checkbox">Day()
+                </td>
+                <td>
+                    Aadhar No :
+                </td>
+                <td>
+                    <input type="text" name="aadhar">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    WhatsApp No<strong>*</strong>
+                </td>
+                <td>
+                    <input type="text" name="whatsapp">
+                </td>
+                <td>
+                    E-Mail id<strong>*</strong>
+                </td>
+                <td>
+                    <input type="text">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Photo
+                </td>
+                <td>
+                    <input type="file" accept="image/png,image/jpeg" name="image" />
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+    <fieldset>
+        <legend>
+            <h2>Residential Address Details</h2>
+        </legend>
+        <table cellspacing="10" cellpadding="5">
+            <tr>
+                <td>
+                    Applicants Address<strong>*</strong>
+                </td>
+                <td>
+                    <textarea name="address" id="" rows="5" cols="30"></textarea required="required"><br>
+              (max characters :20)
+            </td>
+            <td>
+                <label for="district">District <strong>*</strong></label>
+            </td>
+            <td>
+                <select name="district" id="district">
+                    <option value="HYDERABAD">HYDERABAD</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="mandal">Mandal <strong>*</strong></label>
+            </td>
+            <td>
+                <select name="mandal" id="mandal">
+                    <option value="HYDERABAD">HYDERABAD</option>
+                     </select>
+            </td>
+            <td>
+               <label for="village">Village<strong>*</strong></label>
+            </td>
+            <td>
+                <select name="village" id="village">
+                    <option value="HYDERABAD">HYDERABAD</option>
+                     </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Pincode<strong>*</strong>
+                <td><input type="text"></td></td>
+        </tr>
+    </table>
+</fieldset>
+
+<fieldset>
+    <legend>
+        <h2>Pass Type Details</h2>
+    </legend>
+    <table cellspacing="10" cellpadding="5">
+        <tr>
+            <td>
+                <label for="city">City<strong>*</strong></label>
+                &emsp;&emsp;&emsp;&emsp;&emsp;<select name="city" id="city">
+                <option value="HYDERABAD">HYDERABAD</option>
+                 </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="passtype">Passtype<strong>*</strong></label>
+                &emsp;&emsp;&emsp;&nbsp;<select name="passtype" id="passtype">
+                <option value="" selected disabled>------select-----</option>
+                <option value="HYDERABAD">GREATER PASS</option>
+                <option value="HYDERABAD">ORDINARY PASS</option>
+                <option value="HYDERABAD">HYDERABAD</option>
+                <option value="HYDERABAD">METRO EXPRESS PASS</option>
+                 </select>
+            </td>
+        </tr>
+    </table>
+</fieldset>
+<fieldset>
+    <legend>
+        <h2>Mode of Payment & Pass Collection</h2>
+    </legend>
+    <table cellspacing="10" cellpadding="5">
+        <tr>
+            <td>
+                <label for="payment">Payment Mode<strong>*</strong></label>
+               &emsp;&emsp;&emsp;&emsp;<select name="payment" id="payment">
+                <option value="" disabled selected>select payment mode</option>
+                <option value="HYDERABAD">payment at counter</option>
+                 </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="delivery">Pass Delivery Mode<strong>*</strong></label>
+                &emsp;&emsp;<select name="delivery" id="delivery">
+                <option value="" disabled selected>select Pass Delivery Mode</option>
+                <option value="At counter">At counter</option>
+                 </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="delivery">Pass Delivery Mode<strong>*</strong></label>
+                &emsp;&emsp;<select name="delivery" id="delivery">
+                    <option value="" selected disabled>------select-----</option>
+                <option value="At counter">RTC Abids--HYD 20-11-24</option>
+                <option value="At counter">RTC Afzalgunj--HYD 20-11-24</option>
+                <option value="At counter">RTC Borabanda--HYD 20-11-24</option>
+                <option value="At counter">RTC Sanath nagar--HYD 20-11-24</option>
+                <option value="At counter">RTC Eci--HYD 20-11-24l</option>
+                <option value="At counter">RTC Charminar--HYD 20-11-24</option>
+                <option value="At counter">RTC Medchal--HYD 20-11-24</option>
+                <option value="At counter">RTC Mehidipatnam--HYD 20-11-24</option>
+                 </select>
+            </td>
+        </tr>
+    </table>
+</fieldset><br>
+<center>&emsp;&emsp;&emsp;<img src="./images/captcha.PNG" alt="" width="20%"></center><br>
+<center><input type="text"></center><br>
+<center><input type="submit"></center>
+</form>
+
+</body>
+
+</html>
